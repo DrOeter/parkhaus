@@ -98,7 +98,7 @@ class MainWindow:
                 self.cursor.execute(f"insert into user values (null, '{plate}', 'n', now(), null, null);")
             elif plateExist == 1 and seasonticket == 'j':
                 return
-            elif plateExist == 1:
+            elif plateExist == 1 and seasonticket == 'n':
                 self.cursor.execute(f"update user set entrydate = now() where plate = '{plate}';")
 
             self.dataBase.commit()
@@ -138,7 +138,7 @@ class MainWindow:
                     self.cursor.execute(f"insert into user values (null, '{plate}', 'j', now(), null, 0);")
                 elif plateExist == 1 and seasonticket == 'n':
                     return    
-                elif plateExist == 1:
+                elif plateExist == 1 and seasonticket == 'j':
                     self.cursor.execute(f"update user set entrydate = now() where plate = '{plate}';")
                 
                 self.dataBase.commit()
